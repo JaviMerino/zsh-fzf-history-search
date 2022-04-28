@@ -21,6 +21,7 @@ fzf_history_search() {
     BUFFER="${candidates[@]/(#m)*/${${(As: :)MATCH}[4,-1]}}"
     BUFFER="${BUFFER[@]/(#b)(?)\\n/$match[1]
 }"
+    CURSOR=$#BUFFER
     zle vi-fetch-history -n $BUFFER
   fi
   zle reset-prompt
